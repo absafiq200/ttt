@@ -1,0 +1,77 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            
+            "Effect": "Allow",
+            "Action": [                
+                "mobiletargeting:GetEmailTemplate",
+                "mobiletargeting:UpdateSmsTemplate",
+                "mobiletargeting:TagResource",
+                "logs:CreateLogStream",
+                "mobiletargeting:GetSmsTemplate",
+                "mobiletargeting:UntagResource",
+                "mobiletargeting:DeleteSmsTemplate",
+                "mobiletargeting:ListTemplates",
+                "mobiletargeting:ListTemplateVersions",
+                "logs:PutLogEvents",
+                "mobiletargeting:DeleteEmailTemplate",
+                "mobiletargeting:UpdateEmailTemplate",
+                "mobiletargeting:GetApp"
+            ],
+            "Resource": [
+                "arn:aws:mobiletargeting:${region}:${account_id}:templates/*",
+                "arn:aws:mobiletargeting:${region}:${account_id}:templates/*/*",
+                "arn:aws:logs:${region}:${account_id}:log-group:/aws/lambda/${function_name}:*"
+            ]
+        },
+        {
+            
+            "Effect": "Allow",
+            "Action": [    
+                "mobiletargeting:GetApp",
+                "mobiletargeting:GetSegment",
+                "mobiletargeting:CreateCampaign",
+                "mobiletargeting:UpdateCampaign",
+                "mobiletargeting:GetCampaign",
+                "mobiletargeting:DeleteCampaign"                
+            ],
+            "Resource": [
+                "arn:aws:mobiletargeting:${region}:${account_id}:apps/*",
+                "arn:aws:mobiletargeting:${region}:${account_id}:apps/*/*"
+                
+            ]
+        },
+        {
+            
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:UpdateItem",
+                "dynamodb:GetItem"
+            ],
+            "Resource": [
+                "arn:aws:dynamodb:${region}:${account_id}:table/*"
+            ]
+        },
+        {
+            
+            "Effect": "Allow",
+            "Action": "logs:CreateLogGroup",
+            "Resource": "arn:aws:logs:${region}:${account_id}:*"
+        },
+        {            
+            "Effect": "Allow",
+            "Action": [
+                "mobiletargeting:CreateEmailTemplate",
+                "mobiletargeting:CreateSmsTemplate"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
